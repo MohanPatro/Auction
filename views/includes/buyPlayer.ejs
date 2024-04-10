@@ -1,0 +1,82 @@
+<div class="modal fade" id="finalBidModal" tabindex="-1" role="dialog"
+        aria-labelledby="addTeamModelLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTeamModelLabel">Final Bid</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateClientForm" action="/buyPlayer" method="POST" onsubmit="return validateAndSubmit()">
+                        <div class="form-group">
+                            <label for="playerName">Player Name</label>
+                            <input type="text" class="form-control" id="uplayerName" name="playerName"
+                                placeholder="Enter player name" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="teamName">Team Name</label><br>
+                            <select name="teamId" id="uteamId">
+                                <option value="">select team</option>
+                                <% if (teams.length > 0) { %>
+                                <% teams.forEach(team => { %>
+                                <option value="<%= team.teamId %>"><%= team.teamName %></option>
+                                <% }) %>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bidPrice">Bid Price</label>
+                            <input type="text" class="form-control" id="ubidPrice" name="bidPrice"
+                                placeholder="Enter bid price" list="crValues" required>
+                        </div>
+                       <datalist id="crValues">
+                        <option value="1000000-(10 ls)">
+                        <option value="2000000-(20 ls)">
+                        <option value="3000000-(30 ls)">
+                        <option value="4000000-(40 ls)">
+                        <option value="5000000-(50 ls)">
+                        <option value="6000000-(60 ls)">
+                        <option value="7000000-(70 ls)">
+                        <option value="8000000-(80 ls)">
+                        <option value="9000000-(90 ls)">
+                        <option value="10000000-(1 cr)">
+                        <option value="100000000-(10 cr)">
+                        <option value="200000000-(20 cr)">
+                        <option value="300000000-(30 cr)">
+                        <option value="400000000-(40 cr)">
+                        <option value="500000000-(50 cr)">
+                        <option value="600000000-(60 cr)">
+                        <option value="700000000-(70 cr)">
+                        <option value="800000000-(80 cr)">
+                        <option value="900000000-(90 cr)">
+                        <option value="1000000000-(100 cr)">
+                    </datalist>
+
+                        <div class="form-group">
+                            <label for="bidPrice">basePrice</label>
+                            <input type="number" class="form-control" id="ubasePrice" name="basePrice"
+                                placeholder="Enter bid price" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="bidPrice">Type Of Player</label>
+                            <input type="text" class="form-control" id="utype" name="type"
+                                placeholder="Enter bid price" required readonly>
+                        </div>
+                        <input type="hidden" class="form-control" id="uplayerId" name="playerId">
+                        <input type="hidden" class="form-control" id="unationality" name="nationality">
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Confirm Bid</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
